@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/login" component={LoginScreen} />
-        <Route path="/cadastro" component={CadastroScreen} />
+        <Route path="/" component={CadastroScreen} />
       </Switch>
     </Router>
   );
