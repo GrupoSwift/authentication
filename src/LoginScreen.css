@@ -1,0 +1,18 @@
+.login-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+  /*  background-image: url('caminho-para-sua-imagem-de-fundo.jpg'); */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .login-form {
+    background-color: blue; /* Cor azul marinho */
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+  }
+
+  /* Adicione mais estilos conforme necessário */
