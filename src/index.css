@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('/public/svg/Catalogue-pana.svg'); /* Substitua pelo caminho do seu arquivo SVG de plano de fundo */
+ /* Substitua pelo caminho do seu arquivo SVG de plano de fundo */
   background-repeat: no-repeat;
   background-size: 50%;
   /* adicionar imagem a esquerda e centralizada*/
