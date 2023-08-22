@@ -1,17 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { Container, TextField, Button, Grid, AppBar, Toolbar } from '@mui/material';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import {gapi} from 'gapi-script';
+import './LoginScreen.css'; // Import your CSS file for styling
+
+
 
 const LoginScreen = () => {
-  const handleGoogleLoginSuccess = (response) => {
-    console.log('Google login success:', response);
+  const history = useHistory();
+  const clientId = '223407551839-u5p661d3dn6noi04668sf1aude820lqe.apps.googleusercontent.com';
+  useEffect(() => {
+    gapi.load('auth2', () => {
+      gapi.auth2.init({ client_id: clientId })
+    })
+  }, [clientId])
+
+    const handleGoogleLoginSuccess = (response) => {
+      console.log(response);
+
+    const userData = {
+      name: response.profileObj.name,
+      email: response.profileObj.email,
+      profilePicture: response.profileObj.imageUrl,
+    };
+
+    history.push({
+      pathname: '/LoginSucess',
+      state: { user: userData },
+    });
   };
 
-  const handleGoogleLoginFailure = (error) => {
-    console.log('Google login error:', error);
+  const handleGoogleLoginFailure = (response) => {
+    console.log(response);
   };
 
+  const handleFacebookLogin = (response) => {
+    console.log(response);
+  };
+
+  const handleFacebookLoginFailure = (response) => {
+    console.log(response);
+  };
 
   const buttonStyle = {
     backgroundColor: 'rgb(215, 56, 55)',
@@ -24,14 +55,12 @@ const LoginScreen = () => {
     width: '100%',
   };
 
+
   return (
     <div>
-      <AppBar position="static" style={{ backgroundColor: 'rgb(215, 56, 55)', width: '100%' }}>
-        <Toolbar />
-      </AppBar>
-
+      <div className="login-screen-content">
       <Container maxWidth="xs">
-        <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}>
+      <Grid container spacing={2} justifyContent="center" alignItems="center" className="login-form-container">
           <Grid item xs={12}>
             <div style={{ padding: '20px', borderRadius: '8px', boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)' }}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
@@ -50,20 +79,29 @@ const LoginScreen = () => {
                   </Button>
                 </Link>
                 {}
+                <div style={{ display: 'flex', alignItems: 'center', width: '100%', marginBottom: '10px' }}>
                 <GoogleLogin
-                  clientId="231057203284-vmjdr09plm6e9oc6l5stggfalf75reup.apps.googleusercontent.com"
+                  clientId="223407551839-u5p661d3dn6noi04668sf1aude820lqe.apps.googleusercontent.com"
                   onSuccess={handleGoogleLoginSuccess}
                   onFailure={handleGoogleLoginFailure}
                   buttonText="Google"
-                  style={buttonStyle}
                 />
+                {}
+                <div style={{ width: '10px' }} />
+                <FacebookLogin
+                  clientId="13fb2f1e94f7c31e7746297793fd5ac6"
+                  onSuccess={handleFacebookLogin}
+                  onFailure={handleFacebookLoginFailure}
+                  buttonText="Facebook"
+                />
+                </div>
               </div>
             </div>
           </Grid>
         </Grid>
       </Container>
     </div>
+    </div>
   );
 }
-
 export default LoginScreen;

@@ -9,8 +9,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/login" component={LoginScreen} />
-        <Route path="/" component={CadastroScreen} />
-        <Route exact path="/login-success" component={LoginSuccess} />
+        <Route exact path="/LoginSucess" component={LoginSuccess} />
       </Switch>
     </Router>
   );
