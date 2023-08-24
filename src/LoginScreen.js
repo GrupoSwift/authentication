@@ -106,7 +106,7 @@ const LoginScreen = () => {
                     />
                     <div style={{ width: '10px' }} />
                     <FacebookLogin
-                      clientId="13fb2f1e94f7c31e7746297793fd5ac6"
+                      clientId="2746d714fc54f224f5620ff5bac38766"
                       onSuccess={handleFacebookLogin}
                       onFailure={handleFacebookLoginFailure}
                       buttonText="Facebook"
