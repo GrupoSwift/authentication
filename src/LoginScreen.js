@@ -99,7 +99,7 @@ const LoginScreen = () => {
                   </Link>
                   <div style={{ display: 'flex', alignItems: 'center', width: '100%', marginBottom: '10px' }}>
                     <GoogleLogin
-                      clientId={clientId}
+                      clientId="231057203284-vmjdr09plm6e9oc6l5stggfalf75reup.apps.googleusercontent.com"
                       onSuccess={handleGoogleLoginSuccess}
                       onFailure={handleGoogleLoginFailure}
                       buttonText="Google"
