@@ -2,6 +2,8 @@
 
 Este é um projeto de autenticação desenvolvido com React que permite aos usuários fazer login usando suas contas do Google e do Facebook.
 
+Vercel: https://authentication-88h5eku8p-pjtfcl.vercel.app/login
+
 ## Bibliotecas Utilizadas
 
 - [react-google-login](https://www.npmjs.com/package/react-google-login): Usada para adicionar a funcionalidade de login com o Google.
